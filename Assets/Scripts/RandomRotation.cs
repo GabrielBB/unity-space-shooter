@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomRotator : MonoBehaviour
+public class RandomRotation : MonoBehaviour
 {
     // Start is called before the first frame update
 
