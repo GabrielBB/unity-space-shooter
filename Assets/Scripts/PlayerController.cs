@@ -2,12 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Boundary
-{
-    public float minX, maxX, minZ, maxZ;
-}
-
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
@@ -52,9 +46,9 @@ public class PlayerController : MonoBehaviour
         rb.velocity = movement * speed;
 
         rb.position = new Vector3(
-          Mathf.Clamp(rb.position.x, boundary.minX, boundary.maxX),
+          Mathf.Clamp(rb.position.x, boundary.x.min, boundary.x.max),
           0.0f,
-          Mathf.Clamp(rb.position.z, boundary.minZ, boundary.maxZ)
+          Mathf.Clamp(rb.position.z, boundary.z.min, boundary.z.max)
         );
 
         rb.rotation = Quaternion.Euler(0.0f, 0.0f, rb.velocity.x * -tilt);
