@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomRotation : MonoBehaviour
+public class DestroyByVFXTime : MonoBehaviour
 {
     // Start is called before the first frame update
-
-    public float rotationSpeed;
-
     void Start()
     {
-        GetComponent<Rigidbody>().angularVelocity = Random.onUnitSphere * rotationSpeed;
+        Destroy(this.gameObject, GetComponent<ParticleSystem>().main.duration);
     }
 }
-
