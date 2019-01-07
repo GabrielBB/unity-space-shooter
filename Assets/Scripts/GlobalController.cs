@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GlobalController : MonoBehaviour
 {
@@ -13,10 +14,21 @@ public class GlobalController : MonoBehaviour
 
     public AsteroidPosition asteroidPosition;
 
+    public Text scoreText;
+
+    private int score;
+
     // Start is called before the first frame update
     void Start()
     {
+        updateScore(0);
         StartCoroutine(spawnAsteroidWaves());
+    }
+
+    public void updateScore(int newScore)
+    {
+        score += newScore;
+        scoreText.text = $"Score: {score}";
     }
 
     private IEnumerator spawnAsteroidWaves()
